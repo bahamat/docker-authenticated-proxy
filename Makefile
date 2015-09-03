@@ -5,18 +5,6 @@ RUNFLAGS=--rm
 VERSION=0.1
 OWNER=bahamat
 IMAGE=authenticated-proxy
-WITH_MASTERFILES=
-WITH_SKETCHES=
-
-ifneq ($(WITH_MASTERFILES),)
-	RUNFLAGS:=$(RUNFLAGS) -e WITH_MASTERFILES=$(WITH_MASTERFILES) -v $(WITH_MASTERFILES):/var/cfengine/masterfiles
-endif
-
-ifneq ($(WITH_SKETCHES),)
-	RUNFLAGS:=$(RUNFLAGS) -e WITH_SKETCHES=$(WITH_SKETCHES) -v $(WITH_SKETCHES):/var/cfengine/design-center/sketches
-endif
-
-RUNFLAGS:=$(RUNFLAGS) -e CF_FLAGS=$(CF_FLAGS)
 
 all: build
 
@@ -27,7 +15,7 @@ run: build
 	docker run $(RUNFLAGS) -p 8080:80 "${OWNER}/$(IMAGE):$(VERSION)"
 
 shell: build
-	docker run $(RUNFLAGS) -it "${OWNER}/$(IMAGE):$(VERSION)" /bin/bash
+	docker run $(RUNFLAGS) -it -e TERM=xterm "${OWNER}/$(IMAGE):$(VERSION)" /bin/bash
 
 runv: build
 	docker run $(RUNFLAGS) -v `pwd`:/data "$(OWNER)/$(IMAGE):$(VERSION)"
