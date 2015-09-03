@@ -12,12 +12,24 @@ To override the htpasswd file:
 
     docker run -d -v ${PWD}/htpasswd:/etc/apache2/htpasswd -p 8080:80 bahamat/authenticated-proxy
 
+### Proxying Traffic
+
+Be warned, authentication does ***not*** go over SSL, so any passwords transmitted should be considered compromised. I.e., don't reuse passwords!
+
+To proxy traffic, point your HTTP client at the exposed endpoint of your docker container.
+
+    http_proxy=http://localhost:8080/ curl -i -U jack:insecure http://www.google.com/
+
+A web browser should be prompted for authentication.
+
 ## Authentication
 
 This image uses HTTP basic auth.
 
 * The default user is `jack`
 * The default pass is `insecure`
+
+Obviously, using the default configuration on the open Internet is ***not*** advised.
 
 To create an override `htpasswd` file with an initial user:
 
