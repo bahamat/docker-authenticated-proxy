@@ -6,7 +6,7 @@ This docker image creates a quick and simple user authenticating HTTP proxy.
 
 To use the example username/password:
 
-    docker run -d -p 8080:80 bahamat/authenticated-proxy
+    docker run -d -p 80:80 bahamat/authenticated-proxy
 
 To override the htpasswd file:
 
