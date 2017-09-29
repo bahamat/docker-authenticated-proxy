@@ -1,5 +1,7 @@
 FROM alpine:latest
 MAINTAINER Brian Bennett brian.bennett@joyent.com
+ARG VCS_REF
+ARG BUILD_DATE
 EXPOSE 80
 RUN mkdir -p /run/apache2
 RUN apk add --update-cache apache2 apache2-proxy apache2-utils

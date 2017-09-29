@@ -3,7 +3,6 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/bahamat/authenticated-proxy.svg?maxAge=2592000)]()
 [![Layers](https://images.microbadger.com/badges/image/bahamat/authenticated-proxy.svg)](https://microbadger.com/images/bahamat/authenticated-proxy "Get your own image badge on microbadger.com")
 
-
 # User Authenticating HTTP Proxy
 
 This docker image creates a quick and simple user authenticating HTTP proxy.

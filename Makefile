@@ -1,6 +1,8 @@
 CF_FLAGS=--verbose
 DOCKER=docker
-BUILDFLAGS=
+BUILDFLAGS+=--build-arg VCS_REF=`git rev-parse --short HEAD`
+BUILDFLAGS+=--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
+
 RUNFLAGS=--rm
 VERSION=0.1
 OWNER=bahamat
