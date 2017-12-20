@@ -1,6 +1,6 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/bahamat/docker-authenticated-proxy/master/LICENSE)
-[![Docker Stars](https://img.shields.io/docker/stars/bahamat/authenticated-proxy.svg?maxAge=2592000)]()
-[![Docker Pulls](https://img.shields.io/docker/pulls/bahamat/authenticated-proxy.svg?maxAge=2592000)]()
+[![Docker Stars](https://img.shields.io/docker/stars/bahamat/authenticated-proxy.svg?maxAge=2592000)](https://hub.docker.com/r/bahamat/authenticated-proxy/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/bahamat/authenticated-proxy.svg?maxAge=2592000)](https://hub.docker.com/r/bahamat/authenticated-proxy/)
 [![Layers](https://images.microbadger.com/badges/image/bahamat/authenticated-proxy.svg)](https://microbadger.com/images/bahamat/authenticated-proxy "Get your own image badge on microbadger.com")
 
 # User Authenticating HTTP Proxy
