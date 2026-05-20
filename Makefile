@@ -20,11 +20,11 @@ shell: build
 	docker run $(RUNFLAGS) -it -e TERM=xterm --entrypoint /bin/ash "${OWNER}/$(IMAGE):$(VERSION)"
 
 runv: build
-	docker run $(RUNFLAGS) -v `pwd`:/data "$(OWNER)/$(IMAGE):$(VERSION)"
+	docker run $(RUNFLAGS) -p 8080:80 -v `pwd`:/data "$(OWNER)/$(IMAGE):$(VERSION)"
 
 publish: build
-	docker tag bahamat/authenticated-proxy:0.2 bahamat/authenticated-proxy:latest
-	docker push bahamat/authenticated-proxy:0.2
+	docker tag bahamat/authenticated-proxy:$(VERSION) bahamat/authenticated-proxy:latest
+	docker push bahamat/authenticated-proxy:$(VERSION)
 	docker push bahamat/authenticated-proxy:latest
 
 kill:

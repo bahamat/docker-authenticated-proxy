@@ -10,11 +10,11 @@ This docker image creates a quick and simple user authenticating HTTP proxy.
 
 To use the example username/password:
 
-    docker run -d -p 80:80 bahamat/authenticated-proxy
+    docker run -d -p 8080:80 bahamat/authenticated-proxy
 
 To override the htpasswd file:
 
-    docker run -d -v ${PWD}/htpasswd:/etc/apache2/htpasswd -p 8080:80 bahamat/authenticated-proxy
+    docker run -d -v ${PWD}/htpasswd:/etc/htpasswd -p 8080:80 bahamat/authenticated-proxy
 
 ### Proxying Traffic
 
@@ -22,7 +22,7 @@ Be warned, authentication does ***not*** go over SSL, so any passwords transmitt
 
 To proxy traffic, point your HTTP client at the exposed endpoint of your docker container.
 
-    http_proxy=http://localhost:80/ curl -i -U jill:insecure http://www.google.com/
+    http_proxy=http://localhost:8080/ curl -i -U jill:insecure http://www.google.com/
 
 A web browser should be prompted for authentication.
 
@@ -45,8 +45,8 @@ To add additional users:
 
 You can also use `docker exec` to reinitialize the `htpasswd` file in the running container:
 
-    docker exec kickass_heisenberg htpasswd -B -c -b /etc/apache2/htpasswd allison 4schoolBrd
+    docker exec elusive_manning htpasswd -B -c -b /etc/htpasswd allison 4schoolBrd
 
 Or use `docker exec` to create additional users:
 
-    docker exec kickass_heisenberg htpasswd -B -b /etc/apache2/htpasswd helena knifehands
+    docker exec elusive_manning htpasswd -B -b /etc/htpasswd helena knifehands
