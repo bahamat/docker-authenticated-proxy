@@ -22,7 +22,7 @@ Be warned, authentication does ***not*** go over SSL, so any passwords transmitt
 
 To proxy traffic, point your HTTP client at the exposed endpoint of your docker container.
 
-    http_proxy=http://localhost:8080/ curl -i -U jack:insecure http://www.google.com/
+    http_proxy=http://localhost:80/ curl -i -U jill:insecure http://www.google.com/
 
 A web browser should be prompted for authentication.
 
@@ -30,23 +30,23 @@ A web browser should be prompted for authentication.
 
 This image uses HTTP basic auth.
 
-* The default user is `jack`
+* The default user is `jill`
 * The default pass is `insecure`
 
 Obviously, using the default configuration on the open Internet is ***not*** advised.
 
 To create an override `htpasswd` file with an initial user:
 
-    htpasswd -c -b htpasswd walter wh4tsmyname
+    htpasswd -B -c -b htpasswd sarah s3stra
 
 To add additional users:
 
-    htpasswd -b htpasswd skylar h0lly
+    htpasswd -B -b htpasswd cosima crzysci3ncWU
 
 You can also use `docker exec` to reinitialize the `htpasswd` file in the running container:
 
-    docker exec kickass_heisenberg htpasswd -c -b /etc/apache2/htpasswd walter wh4tsmyname
+    docker exec kickass_heisenberg htpasswd -B -c -b /etc/apache2/htpasswd allison 4schoolBrd
 
 Or use `docker exec` to create additional users:
 
-    docker exec kickass_heisenberg htpasswd -b /etc/apache2/htpasswd skylar h0lly
+    docker exec kickass_heisenberg htpasswd -B -b /etc/apache2/htpasswd helena knifehands
