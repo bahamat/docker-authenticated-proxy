@@ -22,6 +22,11 @@ shell: build
 runv: build
 	docker run $(RUNFLAGS) -v `pwd`:/data "$(OWNER)/$(IMAGE):$(VERSION)"
 
+publish: build
+	docker tag bahamat/authenticated-proxy:0.2 bahamat/authenticated-proxy:latest
+	docker push bahamat/authenticated-proxy:0.2
+	docker push bahamat/authenticated-proxy:latest
+
 kill:
 	docker kill `docker ps -q` || echo nothing to kill
 	docker rm -f `docker ps -a -q` || echo nothing to clean
